@@ -4,7 +4,7 @@ body {
  background-repeat: no-repeat;
  background-attachment: fixed;
 
- background-size: 100% 100%;
+  background-size: 100% 100%; 
 }
 .girl {
     position: fixed;
@@ -12,3 +12,50 @@ body {
     height: 100px;
     bottom: 20px;
 }
+.flower {
+    position: fixed;
+    width: 60px;
+    height: 90px;
+    bottom: 50px;
+    right: 100px;
+}
+.flower1 {
+    position: fixed;
+    width: 60px;
+    height: 90px;
+    bottom: 50px;
+    right: 300px;
+}
+.flower2 {
+    position: fixed;
+    width: 60px;
+    height: 90px;
+    bottom: 70px;
+    right: 600px;
+}
+.flower3 {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 90px;
+    right: 750px;
+}
+.flower4 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 50px;
+    right: 950px;
+}
+.flower5 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 50px;
+    right: 1060px;
+}
+
+
+
+
+
