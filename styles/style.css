@@ -3,8 +3,7 @@ body {
  background-image: url("../images/forest1.jpg");
  background-repeat: no-repeat;
  background-attachment: fixed;
-
-  background-size: 100% 100%; 
+ background-size: 100% 100%; 
 }
 .girl {
     position: fixed;
