@@ -1,4 +1,4 @@
-//var girlLeft = 0;                                             //this is the main important js file
+//var girlLeft = 0;
 //making the girl
 //var thepoints = 0;
 var Score=0;
@@ -123,83 +123,3 @@ document.addEventListener("keydown", function(event){
  })
     
     
-      
-
-
-
-
-
-//     var scoreText = settext(5, 5, 'Points: 0', { font: '18px Arial', fill: '#0095DD' });
-//     var score = 0;
-//     if(collisionDetectIon(girl, flower)) {
-//         var elem = document.querySelector('.flower');
-//           elem.parentNode.removeChild(elem);                  
-// } 
-//     score += 10;
-//     scoreText.setText('Points: '+ score);
-// })
-
-
-
-
-
-
-
-        // flower.style.left = `${Math.random() * 100}%`;
-        // flowers.push(flower);              
-        // for (let i = 0; i < flower.length; i ++) {
-        //     if (flowers[i] > 10 ) {
-        //         alert("stop")  
-  
-//},300)
-
-
-    
-    
-
-     
-
-
-
- 
-
-
-
-
-//     setInterval(()=> {   
-//     let flower = document.createElement("img");
-//     flower.src = "./images/flower8.png";
-//     flower.setAttribute("class", "flower");
-//     body.appendChild(flower);
-//     flower.style.left = `${Math.random() * 100}%`;
-//     flowers.push(flower);
-// },3000)
-
- 
- 
- 
- 
-    // if ($girl.window.innerWidth < 1250 && window.innerWidth > 750){
-    //     //if ($girl.style.left > window.innerWidth) {
-    //         console.log("stop")
-  
-// var girlLeft = 0
-// function border(e) {
-//  if (e.keyCode == 39){
-//      girlLeft +=2
-//      girl.style.left = girlLeft + "px";
-//      if (girlLeft >= window.innerWidth) {
-//          girlLeft -= 2
-//      }
-// }
-// if (e.keyCode == 37) {
-//     girlLeft -=2
-//     girl.style.left = girlLeft + "px";
-//     if (girlLeft <= 0){
-//         girlLeft += 2
-//     }
-
-// }
-// //border();
-  
-// }
