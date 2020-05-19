@@ -81,7 +81,9 @@ function collisionDetectIon($dom1,$dom2){
 }
 
 document.addEventListener("keydown", function(event){
-    let flower  = document.querySelector(".flower");// this is important for the collision to happen
+   // let flower  = document.querySelector(".flower");// this is important for the collision to happen
+    let flowers = []
+    flowers.push('flower', 'flower1', 'flower2', 'flower3', 'flower4', 'flower5')
     switch (event.key.toLowerCase()) {
         case "d":
              if ((girl.offsetLeft + girl.width +10) < window.innerWidth ) {
@@ -89,12 +91,12 @@ document.addEventListener("keydown", function(event){
             }           
             break;
         case "a":
-            //if ((girl.offsetLeft + girl.width + 10) < window.innerWidth ) {
+            if ((girl.offsetLeft + girl.width + 10) < window.innerWidth ) {
                 girl.style.left = `${girl.offsetLeft - 10}px`; 
-            // }           
+             }           
             break;
         case "w":
-            if ((girl.offsetTop + girl.width +10) < (window.innerHeight / 2)) {
+            if ((girl.offsetTop + girl.width +10) < window.innerHeight) {
                 girl.style.top = `${girl.offsetTop - 10}px`; 
              } 
             //girl.style.top = `${girl.offsetTop - 10}px`;
@@ -103,7 +105,6 @@ document.addEventListener("keydown", function(event){
             if ((girl.offsetTop + girl.width +10) < window.innerHeight ) {
                 girl.style.top = `${girl.offsetTop + 10}px`; 
              } 
-            //girl.style.top = `${girl.offsetTop + 10}px`;
             break;
         default:
             break;
@@ -113,13 +114,19 @@ document.addEventListener("keydown", function(event){
     //       elem.parentNode.removeChild(elem);                  
     // }
     var score = document.querySelector('#score');
-       score.innerHTML = Score;
-    
-    if(collisionDetectIon(girl, flower)) {
-        var elem = document.querySelector('.flower');
-          elem.parentNode.removeChild(elem);                  
-                Score = Score+1;
-        }   
+       score.innerHTML = Score;  
+       
+      for (let i = 0; i < flowers.length; i++){
+        if(collisionDetectIon(girl, flowers[i])) {  
+            //flowers += flowers[i]  
+            //flowers.splice(i, 1)
+            var n = document.getElementsByTagName('img');   
+        n.parentNode.removeChild(n);                  
+                      Score = Score + 1;  
+
+            }   
+    }
  })
+
     
     
