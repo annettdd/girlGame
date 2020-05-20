@@ -5,6 +5,8 @@
  background-attachment: fixed;
  background-size: 100% 100%; 
 } */
+
+
 .girl {
     position: fixed;
     width: 90px;
@@ -58,6 +60,26 @@
     width: 400px;
     height: 300px;
 }
+.insect {
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    bottom: 20px;
+    right: 60px;
+     /* right: 20px;
+    bottom: 20px;  */
+
+}
+ .insect1 {
+    position: absolute;
+    width: 60px;
+    height: 90px;
+    bottom: 60px;
+    left: 90px;
+ }
+
+
+
 
 
 

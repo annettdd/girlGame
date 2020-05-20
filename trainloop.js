@@ -10,7 +10,7 @@ let body = document.querySelector("body");
     body.appendChild(girl);
 
 //on a click button we can see the flowers wich are made here
-let $body = document.querySelector("body");
+//let body = document.querySelector("body");
     //let flowers = [];
 document.getElementById("myBtn").addEventListener("click", function() {   
     //setInterval(()=> { 
@@ -44,8 +44,36 @@ document.getElementById("myBtn").addEventListener("click", function() {
         let flower5 = document.createElement("img");
         flower5.src = "./images/transparent5.png";
         flower5.setAttribute("class", "flower5");
-        body.appendChild(flower5);       
+        body.appendChild(flower5);  
+        
+// setInterval(function(){ moveMoskito() }, 500)
+//      //making moskito
+//      let insect = document.createElement("img");
+//      insect.src = "./images/moskito.jpg"
+//      insect.setAttribute("class", "insect");
+//      body.appendChild(insect);
+
+
+    
+ 
+
+
+
+
 })
+function moveMoskito() {
+    var position = 0;
+    var move = setInterval(frame, 70);
+    function frame() {
+        if (position == 100) {
+          clearInterval(move);
+        } else {
+          position++;
+          insect.style.right = `${insect.offsetTop - 10}px`
+          insect.style.left = `${insect.offsetLeft - 10}px`;
+        }
+      }
+    }
 
 
  //let flower  = document.querySelector(".flower");
@@ -81,9 +109,9 @@ function collisionDetectIon($dom1,$dom2){
 }
 
 document.addEventListener("keydown", function(event){
-   // let flower  = document.querySelector(".flower");// this is important for the collision to happen
-    let flowers = []
-    flowers.push('flower', 'flower1', 'flower2', 'flower3', 'flower4', 'flower5')
+    let girl = document.querySelector(".girl")// this is important for the collision to happen
+    // let flowers = []
+    // flowers.push('flower', 'flower1', 'flower2', 'flower3', 'flower4', 'flower5')
     switch (event.key.toLowerCase()) {
         case "d":
              if ((girl.offsetLeft + girl.width +10) < window.innerWidth ) {
@@ -115,18 +143,21 @@ document.addEventListener("keydown", function(event){
     // }
     var score = document.querySelector('#score');
        score.innerHTML = Score;  
-       
+       //let girl = document.querySelector(".girl")
+       let flowers  = document.querySelectorAll(".flower");  
       for (let i = 0; i < flowers.length; i++){
         if(collisionDetectIon(girl, flowers[i])) {  
-            //flowers += flowers[i]  
+            flowers += flowers[i]  
             //flowers.splice(i, 1)
-            var n = document.getElementsByTagName('img');   
-        n.parentNode.removeChild(n);                  
+            var n = document.querySelectorAll('.flower');   
+                 n.parentNode.removeChild(n);                  
                       Score = Score + 1;  
 
             }   
     }
  })
+
+
 
     
     
