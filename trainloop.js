@@ -1,71 +1,11 @@
-//var girlLeft = 0;
-//making the girl
-//var thepoints = 0;
+
 var Score=0;
-//var mult = 0;
 let body = document.querySelector("body");
-    let girl = document.createElement("img");
-    girl.src = "./images/fita.png";
-    girl.setAttribute("class", "girl");
-    body.appendChild(girl);
-
-//on a click button we can see the flowers wich are made here
-//let body = document.querySelector("body");
-    //let flowers = [];
-document.getElementById("myBtn").addEventListener("click", function() {   
-    //setInterval(()=> { 
-  
-        let flower = document.createElement("img");
-        flower.src = "./images/flower8.png";
-        flower.setAttribute("class", "flower");
-        body.appendChild(flower);
-
-        let flower1 = document.createElement("img");
-        flower1.src = "./images/transparent1.png";
-        flower1.setAttribute("class", "flower1");
-        body.appendChild(flower1);
-
-        let flower2 = document.createElement("img");
-        flower2.src = "./images/transparent2.png";
-        flower2.setAttribute("class", "flower2");
-        body.appendChild(flower2);
-
-
-        let flower3 = document.createElement("img");
-        flower3.src = "./images/transparent4.png";
-        flower3.setAttribute("class", "flower3");
-        body.appendChild(flower3);
-
-        let flower4 = document.createElement("img");
-        flower4.src = "./images/transparent4.png";
-        flower4.setAttribute("class", "flower4");
-        body.appendChild(flower3);
-
-        let flower5 = document.createElement("img");
-        flower5.src = "./images/transparent5.png";
-        flower5.setAttribute("class", "flower5");
-        body.appendChild(flower5);  
-        
-// setInterval(function(){ moveMoskito() }, 500)
-//      //making moskito
-//      let insect = document.createElement("img");
-//      insect.src = "./images/moskito.jpg"
-//      insect.setAttribute("class", "insect");
-//      body.appendChild(insect);
-
-
-    
- 
-
-
-
-
-})
-function moveMoskito() {
+function moveMoskito(insect) {
     var position = 0;
     var move = setInterval(frame, 70);
     function frame() {
-        if (position == 100) {
+        if (position == 670) {
           clearInterval(move);
         } else {
           position++;
@@ -73,20 +13,14 @@ function moveMoskito() {
           insect.style.left = `${insect.offsetLeft - 10}px`;
         }
       }
-    }
-
-
- //let flower  = document.querySelector(".flower");
-// let flower5  = document.querySelector(".flower5")
-
+    } 
 function collisionDetectIon($dom1,$dom2){
     let sq1 = {
         x: $dom1.offsetLeft,
         y: $dom1.offsetTop,
         width: $dom1.offsetWidth,
         height: $dom1.offsetHeight
-    }
-    
+    }    
     let sq2 = {
         x:$dom2.offsetLeft,
         y:$dom2.offsetTop,
@@ -105,13 +39,75 @@ function collisionDetectIon($dom1,$dom2){
         console.log("No collision!");
         return false
     }
-
 }
 
+
+    
+//making the girl
+///let body = document.querySelector("body");
+    let girl = document.createElement('img');
+    girl.src = "./images/fita.png";
+    girl.setAttribute("class", "girl");
+    body.appendChild(girl);
+   //making the flowers 
+
+
+
+document.getElementById("myBtn").addEventListener("click", function() {
+
+        let flower1 = document.createElement("img");    
+        flower1.src = "./images/flower8.png";
+        flower1.setAttribute("class", "flower1");
+        body.appendChild(flower1);
+        flower1.classList.add('flower');
+
+        let flower2 = document.createElement("img");
+        flower2.src = "./images/transparent1.png";
+        flower2.setAttribute("class", "flower2");
+        body.appendChild(flower2);
+        flower2.classList.add('flower');
+
+        let flower3 = document.createElement("img");
+        flower3.src = "./images/transparent2.png";
+        flower3.setAttribute("class", "flower3");
+        body.appendChild(flower3);
+        flower3.classList.add('flower');
+
+
+        let flower4 = document.createElement("img");
+        flower4.src = "./images/transparent4.png";
+        flower4.setAttribute("class", "flower4");
+        body.appendChild(flower4);
+        flower4.classList.add('flower');
+
+        let flower5 = document.createElement("img");
+        flower5.src = "./images/transparent4.png";
+        flower5.setAttribute("class", "flower5");
+        body.appendChild(flower5);
+        flower5.classList.add('flower');
+
+        let flower6 = document.createElement("img");
+        flower6.src = "./images/transparent5.png";
+        flower6.setAttribute("class", "flower6");
+        body.appendChild(flower6); 
+        flower6.classList.add('flower'); 
+
+
+            //making insect
+setInterval(() => {
+    let insect = document.createElement("img");
+        insect.src = "./images/moskito.jpg"
+        insect.setAttribute("class", "insect");
+        body.appendChild(insect); 
+        insect.style.top = `${Math.random() * 100}%`;       
+        moveMoskito(insect);      
+}, 4000);
+});
+
+
+//moving the girl
 document.addEventListener("keydown", function(event){
-    let girl = document.querySelector(".girl")// this is important for the collision to happen
-    // let flowers = []
-    // flowers.push('flower', 'flower1', 'flower2', 'flower3', 'flower4', 'flower5')
+    //let flower  = document.querySelector(".flower");// this is important for the collision to happen
     switch (event.key.toLowerCase()) {
         case "d":
              if ((girl.offsetLeft + girl.width +10) < window.innerWidth ) {
@@ -119,43 +115,84 @@ document.addEventListener("keydown", function(event){
             }           
             break;
         case "a":
-            if ((girl.offsetLeft + girl.width + 10) < window.innerWidth ) {
+            //if ((girl.offsetLeft + girl.width + 10) < window.innerWidth ) {
                 girl.style.left = `${girl.offsetLeft - 10}px`; 
-             }           
+            // }           
             break;
         case "w":
-            if ((girl.offsetTop + girl.width +10) < window.innerHeight) {
-                girl.style.top = `${girl.offsetTop - 10}px`; 
-             } 
-            //girl.style.top = `${girl.offsetTop - 10}px`;
+            // if ((girl.offsetTop + girl.width +10) < (window.innerHeight / 2)) {
+            //     girl.style.top = `${girl.offsetTop - 10}px`; 
+            //  } 
+            girl.style.top = `${girl.offsetTop - 10}px`;
             break;
         case "s":
             if ((girl.offsetTop + girl.width +10) < window.innerHeight ) {
                 girl.style.top = `${girl.offsetTop + 10}px`; 
              } 
+            //girl.style.top = `${girl.offsetTop + 10}px`;
             break;
         default:
             break;
     }
-    // if(collisionDetectIon(girl, flower)) {
-    //     var elem = document.querySelector('.flower');
-    //       elem.parentNode.removeChild(elem);                  
-    // }
-    var score = document.querySelector('#score');
-       score.innerHTML = Score;  
-       //let girl = document.querySelector(".girl")
-       let flowers  = document.querySelectorAll(".flower");  
-      for (let i = 0; i < flowers.length; i++){
-        if(collisionDetectIon(girl, flowers[i])) {  
-            flowers += flowers[i]  
-            //flowers.splice(i, 1)
-            var n = document.querySelectorAll('.flower');   
-                 n.parentNode.removeChild(n);                  
-                      Score = Score + 1;  
 
-            }   
+    // var score = document.querySelector('#score');
+    //    score.innerHTML = Score;  
+
+
+      //let flowerss = document.querySelectorAll('.flower')
+       //let body = document.querySelector("body");
+       //var elem = body.querySelectorAll('.flower'); 
+     
+   
+    // var list = document.querySelectorAll('img.lastChild')
+    // let flowers = Array.from(list)
+    //   for (let i = 0; i < flowers.length; i++) {
+    //       if (collisionDetectIon(girl, flowers[i])) {
+    //           //flowers.remove(list)
+    //         //list.parentNode.removeChild(list)
+    //         //flowers.splice(i, 1)
+    //       }
+    //   }
+  
+    var score = document.querySelector('#score');
+    score.innerHTML = Score
+    let flower = document.querySelectorAll(".flower");
+    var elem = document.querySelector(".flower");
+    for (let i = 0; i < flower.length; i++) {
+        if(collisionDetectIon(girl, flower[i])) {
+            elem.parentNode.removeChild(elem);     
+            Score = Score+1;          
+        }       
     }
- })
+  
+
+    var insects = [];
+setInterval(()=> {
+    insects.forEach((insect)=> {
+        if(collisionDetectIon(girl, insect)) alert("over");
+        insects.style.top = `${insect.offsetTop + 10}px`;
+    })
+},500)
+})
+
+    //})
+    //     for (let i = 0; i < flowers.length; i++){
+    //         if (collisionDetectIon(girl, flower[i]))   {
+    //         body.removeChild(flowers[i])
+    //         Score = Score + 1; 
+    //     }
+
+    //    }  
+     
+     
+       
+             
+             
+
+                       
+             
+    
+ 
 
 
 
