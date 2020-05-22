@@ -68,7 +68,7 @@
     height: 300px;
 }
 .insect {
-    position: absolute;
+    position: fixed;
     width: 60px;
     height: 90px;
     top: 50%;

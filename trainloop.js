@@ -92,19 +92,38 @@ document.getElementById("myBtn").addEventListener("click", function() {
         body.appendChild(flower6); 
         flower6.classList.add('flower'); 
 
-
-            //making insect
-setInterval(() => {
+//})
+            //making insect         
+setInterval(() => { 
     let insect = document.createElement("img");
         insect.src = "./images/moskito.jpg"
         insect.setAttribute("class", "insect");
         body.appendChild(insect); 
         insect.style.top = `${Math.random() * 100}%`;       
-        moveMoskito(insect);      
+        insects.push(insect);   
+        moveMoskito(insect)
 }, 4000);
-});
+//});
+//let insects = document.querySelector('.insect')
+var insects = [];
+setInterval(()=> {
+    insects.forEach((insect)=> {
+        if(collisionDetectIon(girl, insect)) alert("over");
+        //insects.style.top = `${insect.offsetTop + 10}px`;
+       
+    })
+},500)
+//sound
+var myAudio = document.createElement("audio");
+myAudio.src = 'bounce.mp3';
+body.appendChild(myAudio)
+myAudio.play();
+myAudio.pause();
 
 
+
+
+})
 //moving the girl
 document.addEventListener("keydown", function(event){
     //let flower  = document.querySelector(".flower");// this is important for the collision to happen
@@ -160,19 +179,11 @@ document.addEventListener("keydown", function(event){
     var elem = document.querySelector(".flower");
     for (let i = 0; i < flower.length; i++) {
         if(collisionDetectIon(girl, flower[i])) {
+            
             elem.parentNode.removeChild(elem);     
             Score = Score+1;          
         }       
     }
-  
-
-    var insects = [];
-setInterval(()=> {
-    insects.forEach((insect)=> {
-        if(collisionDetectIon(girl, insect)) alert("over");
-        insects.style.top = `${insect.offsetTop + 10}px`;
-    })
-},500)
 })
 
     //})
