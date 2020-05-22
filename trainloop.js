@@ -1,3 +1,17 @@
+window.onload = () => {
+   
+    document.getElementById('start-button').onclick = () => {
+     
+    };
+  
+  };
+
+
+
+
+
+
+
 
 var Score=0;
 let body = document.querySelector("body");
@@ -40,21 +54,37 @@ function collisionDetectIon($dom1,$dom2){
         return false
     }
 }
+function soundFlowers() {
+    var s = new Audio('./sounds/sounds.m4a');
+    s.play();
+}
+function gameOver(){
+    let girlstop = document.createElement("div");
+        girlstop.setAttribute("class", "girlstop");
+        girlstop.innerHTML = `        
+         <div>   
+        <h2>You Lost</h2>   
+        <p>Now Lucy cant go to Alfred</p>
+        <p>Try again</p>
+         </div>`
+        document.body.appendChild(girlstop);
+}
 
-
-    
+myVar= setInterval("", 20);
 //making the girl
 ///let body = document.querySelector("body");
     let girl = document.createElement('img');
     girl.src = "./images/fita.png";
     girl.setAttribute("class", "girl");
     body.appendChild(girl);
-   //making the flowers 
+   
 
-
-
+   let boy = document.createElement('img')
+   boy.src = "./images/alfred1.gif";
+   boy.setAttribute("class", "boy")
+   body.appendChild(boy)
 document.getElementById("myBtn").addEventListener("click", function() {
-
+//making the flowers 
         let flower1 = document.createElement("img");    
         flower1.src = "./images/flower8.png";
         flower1.setAttribute("class", "flower1");
@@ -75,7 +105,7 @@ document.getElementById("myBtn").addEventListener("click", function() {
 
 
         let flower4 = document.createElement("img");
-        flower4.src = "./images/transparent4.png";
+        flower4.src = "./images/transparent3.png";
         flower4.setAttribute("class", "flower4");
         body.appendChild(flower4);
         flower4.classList.add('flower');
@@ -92,41 +122,86 @@ document.getElementById("myBtn").addEventListener("click", function() {
         body.appendChild(flower6); 
         flower6.classList.add('flower'); 
 
-//})
+        
+        let flower7 = document.createElement("img");
+        flower7.src = "./images/transparent6.png";
+        flower7.setAttribute("class", "flower7");
+        body.appendChild(flower6); 
+        flower7.classList.add('flower'); 
+
+        let flower8 = document.createElement("img");
+        flower8.src = "./images/transparent7.png";
+        flower8.setAttribute("class", "flower8");
+        body.appendChild(flower8); 
+        flower8.classList.add('flower'); 
+
+        let flower9 = document.createElement("img");
+        flower9.src = "./images/transparent8.png";
+        flower9.setAttribute("class", "flower9");
+        body.appendChild(flower9); 
+        flower9.classList.add('flower'); 
+
+        let flower10 = document.createElement("img");
+        flower10.src = "./images/transparent9.png";
+        flower10.setAttribute("class", "flower10");
+        body.appendChild(flower10); 
+        flower10.classList.add('flower'); 
+
+        let flower11 = document.createElement("img");
+        flower11.src = "./images/transparent10.png";
+        flower11.setAttribute("class", "flower11");
+        body.appendChild(flower11); 
+        flower11.classList.add('flower'); 
+
+        let flower12 = document.createElement("img");
+        flower12.src = "./images/transparent11.png";
+        flower12.setAttribute("class", "flower12");
+        body.appendChild(flower11); 
+        flower12.classList.add('flower'); 
+
+        let flower13 = document.createElement("img");
+        flower13.src = "./images/transparent12.png";
+        flower13.setAttribute("class", "flower13");
+        body.appendChild(flower13); 
+        flower13.classList.add('flower'); 
+
+        let flower14 = document.createElement("img");
+        flower14.src = "./images/transparent13.png";
+        flower14.setAttribute("class", "flower14");
+        body.appendChild(flower13); 
+        flower14.classList.add('flower'); 
+
+
+
+
+
+
+
             //making insect         
 setInterval(() => { 
     let insect = document.createElement("img");
-        insect.src = "./images/moskito.jpg"
+        insect.src = "./images/moak1.png"
         insect.setAttribute("class", "insect");
         body.appendChild(insect); 
         insect.style.top = `${Math.random() * 100}%`;       
         insects.push(insect);   
         moveMoskito(insect)
 }, 4000);
-//});
-//let insects = document.querySelector('.insect')
-var insects = [];
+
+var insects = []
 setInterval(()=> {
     insects.forEach((insect)=> {
-        if(collisionDetectIon(girl, insect)) alert("over");
-        //insects.style.top = `${insect.offsetTop + 10}px`;
-       
+        if(collisionDetectIon(girl, insect)) {
+            gameOver()   
+           clearInterval(myVar)     
+        }
     })
-},500)
-//sound
-var myAudio = document.createElement("audio");
-myAudio.src = 'bounce.mp3';
-body.appendChild(myAudio)
-myAudio.play();
-myAudio.pause();
-
-
-
-
+},50)
 })
+
+
 //moving the girl
 document.addEventListener("keydown", function(event){
-    //let flower  = document.querySelector(".flower");// this is important for the collision to happen
     switch (event.key.toLowerCase()) {
         case "d":
              if ((girl.offsetLeft + girl.width +10) < window.innerWidth ) {
@@ -153,59 +228,16 @@ document.addEventListener("keydown", function(event){
         default:
             break;
     }
-
-    // var score = document.querySelector('#score');
-    //    score.innerHTML = Score;  
-
-
-      //let flowerss = document.querySelectorAll('.flower')
-       //let body = document.querySelector("body");
-       //var elem = body.querySelectorAll('.flower'); 
-     
-   
-    // var list = document.querySelectorAll('img.lastChild')
-    // let flowers = Array.from(list)
-    //   for (let i = 0; i < flowers.length; i++) {
-    //       if (collisionDetectIon(girl, flowers[i])) {
-    //           //flowers.remove(list)
-    //         //list.parentNode.removeChild(list)
-    //         //flowers.splice(i, 1)
-    //       }
-    //   }
-  
-    var score = document.querySelector('#score');
+  //colecting flowers
+    var score = document.querySelector('#score')
     score.innerHTML = Score
-    let flower = document.querySelectorAll(".flower");
-    var elem = document.querySelector(".flower");
-    for (let i = 0; i < flower.length; i++) {
-        if(collisionDetectIon(girl, flower[i])) {
-            
-            elem.parentNode.removeChild(elem);     
-            Score = Score+1;          
-        }       
-    }
-})
-
-    //})
-    //     for (let i = 0; i < flowers.length; i++){
-    //         if (collisionDetectIon(girl, flower[i]))   {
-    //         body.removeChild(flowers[i])
-    //         Score = Score + 1; 
-    //     }
-
-    //    }  
-     
-     
-       
-             
-             
-
-                       
-             
-    
- 
-
-
-
-    
+     let flower = document.querySelectorAll(".flower");
+        for (let i = 0; i < flower.length; i++){
+            if (collisionDetectIon(girl, flower[i]))   {
+            body.removeChild(flower[i])
+            Score = Score + 1; 
+            soundFlowers()
+        }
+       }      
+    })   
     

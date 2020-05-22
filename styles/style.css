@@ -1,11 +1,14 @@
 
-/* body {
+ body {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: center;
  background-image: url("../images/forest1.jpg");
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: 100% 100%; 
-} */
-
+} 
 
 .girl {
     position: fixed;
@@ -13,6 +16,13 @@
     height: 100px;
     bottom: 20px;
     left: 20px;
+}
+.boy {
+    position: fixed;
+    width: 120px;
+    height: 150px;
+    bottom: 20px;
+    right: 10px;
 }
 .flower {
     position: absolute;
@@ -60,33 +70,103 @@
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 80px;
-    right: 1600px;
+    bottom: 20px;
+   left: 600px;
 }
+.flower7 {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    bottom: 120px;
+    left: 200px;
+}
+
+.flower8 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 120px;
+    left: 300px;
+}
+.flower9 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 100px;
+    left: 1000px;
+}
+
+.flower10 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right:150px;
+}
+.flower11 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+   left: 200px;
+}
+.flower12 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 70px;
+    right: 2000px;
+}
+.flower13 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 120px;
+    right: 900px;
+}
+.flower14 {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 120px;
+    left: 80px;
+}
+
+
 #score {    
     width: 400px;
     height: 300px;
 }
 .insect {
     position: fixed;
-    width: 60px;
+    width: 90px;
     height: 90px;
     top: 50%;
     right: 60px;
-   
-
-
 }
- /* .insect1 {
-    position: absolute;
-    width: 60px;
-    height: 90px;
-    bottom: 60px;
-    left: 90px;
- } */
 
-
-
+.girlstop {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 2.6em; 
+    width: 1000px;
+    height: 260px;
+    padding: 6% 0;
+    background: lightgreen;
+    border-radius: 10px;
+    margin: 8% 0 0 0;   
+}
+#myBtn {
+    font-weight: bold;
+    font-size: larger;
+    background-color: lightgreen;
+    width: 200px;
+    height: 40px;
+    
+}
 
 
 
