@@ -15,15 +15,16 @@
             <p>Good Luck</p>
              </div>`
             document.body.appendChild(startdiv);
-            return;
         }
         startdiv()
+      
         
       
          
       
 var Score=0;
 let body = document.querySelector("body");
+var insects = []
 function moveMoskito(insect) {
     var position = 0;
     var move = setInterval(frame, 70);
@@ -35,8 +36,19 @@ function moveMoskito(insect) {
           insect.style.right = `${insect.offsetTop - 10}px`
           insect.style.left = `${insect.offsetLeft - 10}px`;
         }
-      }
-    } 
+    
+        var myVar =  setInterval(()=> {
+            insects.forEach((insect)=> {
+                if(collisionDetectIon(girl, insect)) {
+                   return  
+                    clearInterval(myvar)     
+                }       
+        },50)
+        })
+    }
+    //gameOverdiv()
+    }
+    //gameOverdiv()
 function collisionDetectIon($dom1,$dom2){
     let sq1 = {
         x: $dom1.offsetLeft,
@@ -65,7 +77,7 @@ function collisionDetectIon($dom1,$dom2){
 }
 function startgamesound() {
     var m = new Audio('./sounds/startmusic.m4a');
-    m.play();
+    m.play();  
 }
 function soundFlowers() {
     var s = new Audio('./sounds/pickflower.m4a');
@@ -78,8 +90,6 @@ function gameOverdiv(){
         girlstop.innerHTML = `        
          <div>   
         <h2>You Lost</h2>   
-      
-     
         <p>Now Lucy cant go to Alfred</p>
         <p>Try again</p>
          </div>`
@@ -189,27 +199,20 @@ document.getElementById("myBtn").addEventListener("click", function() {
         body.appendChild(flower13); 
         flower14.classList.add('flower'); 
 
+        //delete first start div
+        var elem = document.querySelector('.startdiv');
+        elem.parentNode.removeChild(elem);       
+
             //making insect         
-            setInterval(() => { 
+ setInterval(() => { 
     let insect = document.createElement("img");
         insect.src = "./images/moak1.png"
         insect.setAttribute("class", "insect");
         body.appendChild(insect); 
         insect.style.top = `${Math.random() * 100}%`;       
         insects.push(insect);   
-        moveMoskito(insect)
-       // clearInterval(myVar)
+        moveMoskito(insect)        
 }, 4000);
-
-var insects = []
-setInterval(()=> {
-    insects.forEach((insect)=> {
-        if(collisionDetectIon(girl, insect)) {
-            gameOverdiv()   
-           //clearInterval(myVar)     
-        }
-    })
-},50)
 })
 
    

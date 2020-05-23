@@ -146,15 +146,26 @@
 } 
 .insect {
     position: fixed;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     top: 50%;
     right: 60px;
     
 }
 
 .girlstop {
-     position: fixed;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 30px;
+    width: 1000px;
+    height:500px;
+    background: rgba(71, 67, 56, 0.637);
+    color:white;
+    padding: 2%;
+}
+     /* position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -165,8 +176,8 @@
     padding: 6% 0;
     background: lightgreen;
     border-radius: 10px;
-    margin: 8% 0 0 0;   
-}
+    margin: 6%;    */
+
 /* .girlstop {
 display: flex;
 justify-content: center;
