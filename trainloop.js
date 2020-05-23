@@ -1,18 +1,27 @@
-window.onload = () => {
-   
-    document.getElementById('start-button').onclick = () => {
-     
-    };
-  
-  };
 
 
-
-
-
-
-
-
+    //window.onload = function() {
+    //startgame()
+        //var context = new AudioContext();
+        // is making the start div
+        function startdiv(){
+            let startdiv = document.createElement("div");
+            startdiv.setAttribute("class", "startdiv");
+            startdiv.innerHTML = `        
+             <div>   
+            <h2>Welkome</h2>   
+            <p>Lucy need to get to Alfred, but there might be moskitos on the way, be careful not be biten</p>
+            <p>and you need to colect as much flowers as posible</p>
+            <p>Good Luck</p>
+             </div>`
+            document.body.appendChild(startdiv);
+            return;
+        }
+        startdiv()
+        
+      
+         
+      
 var Score=0;
 let body = document.querySelector("body");
 function moveMoskito(insect) {
@@ -54,23 +63,30 @@ function collisionDetectIon($dom1,$dom2){
         return false
     }
 }
+function startgamesound() {
+    var m = new Audio('./sounds/startmusic.m4a');
+    m.play();
+}
 function soundFlowers() {
-    var s = new Audio('./sounds/sounds.m4a');
+    var s = new Audio('./sounds/pickflower.m4a');
     s.play();
 }
-function gameOver(){
+function gameOverdiv(){
     let girlstop = document.createElement("div");
         girlstop.setAttribute("class", "girlstop");
+        //score.innerHTML = Score
         girlstop.innerHTML = `        
          <div>   
         <h2>You Lost</h2>   
+      
+     
         <p>Now Lucy cant go to Alfred</p>
         <p>Try again</p>
          </div>`
         document.body.appendChild(girlstop);
 }
 
-myVar= setInterval("", 20);
+
 //making the girl
 ///let body = document.querySelector("body");
     let girl = document.createElement('img');
@@ -83,7 +99,9 @@ myVar= setInterval("", 20);
    boy.src = "./images/alfred1.gif";
    boy.setAttribute("class", "boy")
    body.appendChild(boy)
+   
 document.getElementById("myBtn").addEventListener("click", function() {
+    startgamesound()
 //making the flowers 
         let flower1 = document.createElement("img");    
         flower1.src = "./images/flower8.png";
@@ -171,14 +189,8 @@ document.getElementById("myBtn").addEventListener("click", function() {
         body.appendChild(flower13); 
         flower14.classList.add('flower'); 
 
-
-
-
-
-
-
             //making insect         
-setInterval(() => { 
+            setInterval(() => { 
     let insect = document.createElement("img");
         insect.src = "./images/moak1.png"
         insect.setAttribute("class", "insect");
@@ -186,20 +198,21 @@ setInterval(() => {
         insect.style.top = `${Math.random() * 100}%`;       
         insects.push(insect);   
         moveMoskito(insect)
+       // clearInterval(myVar)
 }, 4000);
 
 var insects = []
 setInterval(()=> {
     insects.forEach((insect)=> {
         if(collisionDetectIon(girl, insect)) {
-            gameOver()   
-           clearInterval(myVar)     
+            gameOverdiv()   
+           //clearInterval(myVar)     
         }
     })
 },50)
 })
 
-
+   
 //moving the girl
 document.addEventListener("keydown", function(event){
     switch (event.key.toLowerCase()) {
