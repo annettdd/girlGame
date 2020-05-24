@@ -4,7 +4,7 @@
     //startgame()
         //var context = new AudioContext();
         // is making the start div
-        function startdiv(){
+        function startdiv() {
             let startdiv = document.createElement("div");
             startdiv.setAttribute("class", "startdiv");
             startdiv.innerHTML = `        
@@ -17,38 +17,57 @@
             document.body.appendChild(startdiv);
         }
         startdiv()
+
+        function meetAlfred() {
+            let meetAlfreddiv = document.createElement("div");
+            meetAlfreddiv.setAttribute("class", "meetAlfreddiv");
+            meetAlfreddiv.innerHTML = `        
+             <div >   
+            <h2>Great you made Lucy happy</h2>   
+            <p>Now Lucy and Alfred will live happy toghether</p>  
+             <p> Lucy colected: ${Score} flowers</p>  
+             <img src="./images/heart.png" class="heart">    
+             </div>`
+            document.body.appendChild(meetAlfreddiv);
+        }
       
-        
-      
-         
-      
+        function gameOverdiv(){
+            let girlstop = document.createElement("div");
+                girlstop.setAttribute("class", "girlstop");
+                //score.innerHTML = Score
+                girlstop.innerHTML = `        
+                 <div>   
+                <h2>You Lost</h2>   
+                <p>Now Lucy cant go to Alfred</p>
+                <p>Try again</p>
+                 </div>`
+                document.body.appendChild(girlstop);
+        }
+ 
 var Score=0;
 let body = document.querySelector("body");
 var insects = []
 function moveMoskito(insect) {
     var position = 0;
-    var move = setInterval(frame, 70);
+    var move = setInterval(frame, 60);
     function frame() {
-        if (position == 670) {
+        if (position == 370) {
           clearInterval(move);
         } else {
           position++;
           insect.style.right = `${insect.offsetTop - 10}px`
           insect.style.left = `${insect.offsetLeft - 10}px`;
-        }
-    
-        var myVar =  setInterval(()=> {
-            insects.forEach((insect)=> {
-                if(collisionDetectIon(girl, insect)) {
-                   return  
-                    clearInterval(myvar)     
-                }       
-        },50)
-        })
+        } 
     }
-    //gameOverdiv()
+   var myVar =  setInterval(()=> { 
+    if(collisionDetectIon(girl, insect)) {
+        gameOverdiv()   
+       return gameOverSound() 
+        clearInterval(myVar)
     }
-    //gameOverdiv()
+    }, 500)
+    } 
+
 function collisionDetectIon($dom1,$dom2){
     let sq1 = {
         x: $dom1.offsetLeft,
@@ -62,7 +81,6 @@ function collisionDetectIon($dom1,$dom2){
         width:$dom2.offsetWidth,
         height:$dom2.offsetHeight
     }
-    // Method 1. Works with all rectangles and is cleaner.
     if(!(sq2.y + sq2.height < sq1.y || 
           sq2.y > sq1.y + sq1.height ||
           sq2.x + sq2.width < sq1.x ||
@@ -83,19 +101,10 @@ function soundFlowers() {
     var s = new Audio('./sounds/pickflower.m4a');
     s.play();
 }
-function gameOverdiv(){
-    let girlstop = document.createElement("div");
-        girlstop.setAttribute("class", "girlstop");
-        //score.innerHTML = Score
-        girlstop.innerHTML = `        
-         <div>   
-        <h2>You Lost</h2>   
-        <p>Now Lucy cant go to Alfred</p>
-        <p>Try again</p>
-         </div>`
-        document.body.appendChild(girlstop);
+function gameOverSound() {
+    var s = new Audio('./sounds/gameoversound.m4a');
+    s.play();
 }
-
 
 //making the girl
 ///let body = document.querySelector("body");
@@ -109,9 +118,17 @@ function gameOverdiv(){
    boy.src = "./images/alfred1.gif";
    boy.setAttribute("class", "boy")
    body.appendChild(boy)
+
+//    let badMoskito = document.createElement('img')
+//    badMoskito.src = "./images/badmoskito.png";
+//    badMoskito.setAttribute("class", "badM")
+//    body.appendChild(badMoskito)
+
+ 
    
 document.getElementById("myBtn").addEventListener("click", function() {
     startgamesound()
+    //moveMoskito(badMoskito)
 //making the flowers 
         let flower1 = document.createElement("img");    
         flower1.src = "./images/flower8.png";
@@ -212,7 +229,7 @@ document.getElementById("myBtn").addEventListener("click", function() {
         insect.style.top = `${Math.random() * 100}%`;       
         insects.push(insect);   
         moveMoskito(insect)        
-}, 4000);
+}, 3000);
 })
 
    
@@ -248,12 +265,25 @@ document.addEventListener("keydown", function(event){
     var score = document.querySelector('#score')
     score.innerHTML = Score
      let flower = document.querySelectorAll(".flower");
-        for (let i = 0; i < flower.length; i++){
+        for (let i = 0; i < flower.length; i++) {
             if (collisionDetectIon(girl, flower[i]))   {
             body.removeChild(flower[i])
             Score = Score + 1; 
             soundFlowers()
         }
        }      
-    })   
-    
+       let boy = document.querySelector('.boy') 
+       if (collisionDetectIon(girl, boy))
+       meetAlfred()     
+
+    //let insect = document.querySelector('.insect')
+      // setInterval(()=> {            
+      //  insects.forEach((insect)=> {
+            // if(collisionDetectIon(girl, insect)) {
+            //     gameOverdiv()   
+            //     gameOverSound() 
+            // }                                 
+             // clearInterval(myVar)                                        
+//},500) 
+})      
+           

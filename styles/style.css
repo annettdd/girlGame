@@ -148,8 +148,8 @@
     position: fixed;
     width: 70px;
     height: 70px;
-    top: 50%;
-    right: 60px;
+   
+  
     
 }
 
@@ -165,31 +165,6 @@
     color:white;
     padding: 2%;
 }
-     /* position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    font-size: 2.6em; 
-    width: 1000px;
-    height: 260px;
-    padding: 6% 0;
-    background: lightgreen;
-    border-radius: 10px;
-    margin: 6%;    */
-
-/* .girlstop {
-display: flex;
-justify-content: center;
-text-align: center;
-flex-direction: column;
-font-size: 30px;
-width: 1000px;
-height:500px;
-background: rgba(71, 67, 56, 0.637);
-color:white;
-padding: 2%;
-}a good one */
 
 #myBtn {
     font-weight: bold;
@@ -210,6 +185,29 @@ padding: 2%;
     background: rgba(71, 67, 56, 0.637);
     color:white;
     padding: 2%;
+}
+.meetAlfreddiv {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: 30px;
+    width: 1000px;
+    height:500px;
+    background: rgba(71, 67, 56, 0.637);
+    color:white;
+    padding: 2%;
+}
+/* .badM {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    top: 80%;
+    right: 60px;
+} */
+.heart {
+    width: 100px;
+    height: 90px;
 }
 
 
