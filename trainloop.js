@@ -12,10 +12,9 @@
             <h2>Welkome</h2>   
             <p>Lucy need to get to Alfred, but there might be moskitos on the way, be careful not get biten</p>
             <p>Lucy needs to colect as much flowers as posible</p>
-            <p>Good Luck</p>
+            <p>Good Luck, use to move the girl, up-w, right-d, left-a, down-s</p>
              </div>`
-            document.body.appendChild(startdiv);
-            
+            document.body.appendChild(startdiv);            
         }
         startdiv()
 
