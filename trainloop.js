@@ -11,10 +11,11 @@
              <div>   
             <h2>Welkome</h2>   
             <p>Lucy need to get to Alfred, but there might be moskitos on the way, be careful not get biten</p>
-            <p>and you need to colect as much flowers as posible</p>
+            <p>Lucy needs to colect as much flowers as posible</p>
             <p>Good Luck</p>
              </div>`
             document.body.appendChild(startdiv);
+            
         }
         startdiv()
 
@@ -29,6 +30,7 @@
              <img src="./images/heart.png" class="heart">    
              </div>`
             document.body.appendChild(meetAlfreddiv);
+            
         }
       
         function gameOverdiv(){
@@ -66,9 +68,9 @@ function moveMoskito(insect) {
    var myVar =  setInterval(()=> { 
     if(collisionDetectIon(girl, insect)) {
         gameOverdiv() 
-       return gameOverSound() 
-        clearInterval(myVar)
-       
+        gameOverSound() 
+        clearInterval(myVar) 
+       return
     }
     }, 500)
     } 
@@ -117,6 +119,7 @@ function gameOverSound() {
     girl.src = "./images/fita.png";
     girl.setAttribute("class", "girl");
     body.appendChild(girl);
+    girl.classList.add("vibrate-1")
    
 
    let boy = document.createElement('img')
@@ -227,18 +230,17 @@ document.getElementById("myBtn").addEventListener("click", function() {
 
             //making insect   
             var insects = []      
- setInterval(() => { 
+  setInterval(() => { 
     let insect = document.createElement("img");
         insect.src = "./images/moak1.png"
         insect.setAttribute("class", "insect");
         body.appendChild(insect); 
         insect.style.left = `${Math.random() * 100}%`;       
         insects.push(insect);   
-        moveMoskito(insect)        
-}, 3000);
-})
+        moveMoskito(insect)             
+}, 4000);
 
-   
+})   
 //moving the girl
 document.addEventListener("keydown", function(event){
     switch (event.key.toLowerCase()) {
@@ -281,13 +283,15 @@ document.addEventListener("keydown", function(event){
        }   
        let boy = document.querySelector('.boy') 
        if (collisionDetectIon(girl, boy))
-       meetAlfred()   
+       meetAlfred()  
+        
        
 
     //   let insect = document.querySelector(".insect") 
     //    if(collisionDetectIon(girl, insect)) {
     //           gameOverdiv() 
-    //           gameOverSound()             
+    //           gameOverSound()   
+                   
     //    }
          
 
