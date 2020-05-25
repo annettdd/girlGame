@@ -10,7 +10,7 @@
             startdiv.innerHTML = `        
              <div>   
             <h2>Welkome</h2>   
-            <p>Lucy need to get to Alfred, but there might be moskitos on the way, be careful not be biten</p>
+            <p>Lucy need to get to Alfred, but there might be moskitos on the way, be careful not get biten</p>
             <p>and you need to colect as much flowers as posible</p>
             <p>Good Luck</p>
              </div>`
@@ -39,19 +39,23 @@
                  <div>   
                 <h2>You Lost</h2>   
                 <p>Now Lucy cant go to Alfred</p>
-                <p>Try again</p>
+                <a href="#">Try again</a>
                  </div>`
                 document.body.appendChild(girlstop);
         }
+// var myVar = (moveMoskito, 1000)
+//         function myStopFunction() {
+//             clearInterval(myVar);
+//           }
  
 var Score=0;
 let body = document.querySelector("body");
-var insects = []
+
 function moveMoskito(insect) {
     var position = 0;
-    var move = setInterval(frame, 60);
+    var move = setInterval(frame, 10);
     function frame() {
-        if (position == 370) {
+        if (position == 570) {
           clearInterval(move);
         } else {
           position++;
@@ -61,9 +65,10 @@ function moveMoskito(insect) {
     }
    var myVar =  setInterval(()=> { 
     if(collisionDetectIon(girl, insect)) {
-        gameOverdiv()   
+        gameOverdiv() 
        return gameOverSound() 
         clearInterval(myVar)
+       
     }
     }, 500)
     } 
@@ -220,13 +225,14 @@ document.getElementById("myBtn").addEventListener("click", function() {
         var elem = document.querySelector('.startdiv');
         elem.parentNode.removeChild(elem);       
 
-            //making insect         
+            //making insect   
+            var insects = []      
  setInterval(() => { 
     let insect = document.createElement("img");
         insect.src = "./images/moak1.png"
         insect.setAttribute("class", "insect");
         body.appendChild(insect); 
-        insect.style.top = `${Math.random() * 100}%`;       
+        insect.style.left = `${Math.random() * 100}%`;       
         insects.push(insect);   
         moveMoskito(insect)        
 }, 3000);
@@ -262,6 +268,7 @@ document.addEventListener("keydown", function(event){
             break;
     }
   //colecting flowers
+
     var score = document.querySelector('#score')
     score.innerHTML = Score
      let flower = document.querySelectorAll(".flower");
@@ -271,19 +278,31 @@ document.addEventListener("keydown", function(event){
             Score = Score + 1; 
             soundFlowers()
         }
-       }      
+       }   
        let boy = document.querySelector('.boy') 
        if (collisionDetectIon(girl, boy))
-       meetAlfred()     
+       meetAlfred()   
+       
 
-    //let insect = document.querySelector('.insect')
-      // setInterval(()=> {            
-      //  insects.forEach((insect)=> {
-            // if(collisionDetectIon(girl, insect)) {
-            //     gameOverdiv()   
-            //     gameOverSound() 
-            // }                                 
-             // clearInterval(myVar)                                        
-//},500) 
+    //   let insect = document.querySelector(".insect") 
+    //    if(collisionDetectIon(girl, insect)) {
+    //           gameOverdiv() 
+    //           gameOverSound()             
+    //    }
+         
+
+//     let insect = document.querySelector('.insect')
+//     var myVar =  setInterval(()=> {            
+//        insects.forEach((insect)=> {
+//             if(collisionDetectIon(girl, insect)) {
+//                 gameOverdiv()   
+//                 gameOverSound()                                 
+//              clearInterval(myVar)  
+//             }
+                                              
+// },500) 
+// })    
+      
+       
 })      
-           
+         
